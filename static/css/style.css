@@ -1,0 +1,311 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* =========================
+   BODY (SINGLE SOURCE)
+========================= */
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #0c1f2b, #000);
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: #e5e5e5;
+}
+
+/* =========================
+   ANIMATED GYM BACKGROUND
+========================= */
+.space-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background-image: url("/static/images/gym-icons.png");
+    background-repeat: repeat;
+    background-size: 240px;
+
+    opacity: 0.32;
+
+    filter:
+        brightness(1.8)
+        drop-shadow(0 0 6px rgba(0,255,220,0.6))
+        drop-shadow(0 0 16px rgba(0,255,220,0.4));
+
+    animation:
+        spaceMove 90s linear infinite,
+        glowPulse 4s ease-in-out infinite;
+}
+
+/* =========================
+   AUTH CONTAINER
+========================= */
+.auth-container {
+    position: relative;
+    z-index: 5;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================
+   AUTH CARD
+========================= */
+.auth-card {
+    width: 360px;
+    background: rgba(0,0,0,0.88);
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 0 35px rgba(0,255,200,0.55);
+    text-align: center;
+    animation: pulseCard 4s ease-in-out infinite;
+}
+
+.auth-card h2 {
+    color: #00ffd0;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+.auth-card input {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    background: #111;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+}
+
+.auth-card input:focus {
+    box-shadow: 0 0 12px #00ffd0;
+}
+
+/* =========================
+   PASSWORD TOGGLE
+========================= */
+.password-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #00ffd0;
+    font-size: 18px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: linear-gradient(45deg, #00ffd0, #00bfff);
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px #00ffd0;
+}
+
+/* =========================
+   LINKS
+========================= */
+.links {
+    margin-top: 20px;
+}
+
+.links a {
+    color: #00ffd0;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* =========================
+   ERRORS
+========================= */
+.error {
+    background: rgba(255,0,0,0.25);
+    color: #ff8080;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   FLASH POPUP
+========================= */
+#flash-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+}
+
+.flash-popup {
+    background: linear-gradient(45deg, #00ffd0, #00bfff);
+    color: #000;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 0 25px rgba(0,255,200,0.7);
+    animation: slideDown 0.5s ease;
+}
+
+/* =========================
+   HEALTH FORM
+========================= */
+.health-card {
+    width: 420px;
+}
+
+.subtitle {
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.health-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.health-grid input,
+.health-grid select {
+    padding: 14px;
+    background: #111;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+}
+
+.health-grid select {
+    grid-column: span 2;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+.dashboard {
+    padding: 40px;
+    padding-bottom: 90px;
+}
+
+.dashboard h1,
+.dashboard h3 {
+    color: #00ffd0;
+    margin-bottom: 12px;
+}
+
+.dashboard-card {
+    background: rgba(0,0,0,0.85);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 25px rgba(0,255,200,0.25);
+}
+
+.dashboard ul {
+    padding-left: 20px;
+}
+
+.stat-highlight {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00ffd0;
+}
+
+/* =========================
+   DASHBOARD ACTIONS
+========================= */
+.dashboard-actions {
+    display: flex;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.action-btn {
+    padding: 12px 22px;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #00ffd0, #00bfff);
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* =========================
+   LOGOUT
+========================= */
+.logout-btn {
+    color: #ff6b6b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes spaceMove {
+    from { background-position: 0 0; }
+    to { background-position: 2000px -2000px; }
+}
+
+@keyframes glowPulse {
+    0%,100% {
+        opacity: 0.25;
+        filter: brightness(1.5);
+    }
+    50% {
+        opacity: 0.45;
+        filter: brightness(2.4);
+    }
+}
+
+@keyframes pulseCard {
+    0%,100% { box-shadow: 0 0 25px rgba(0,255,200,0.4); }
+    50% { box-shadow: 0 0 45px rgba(0,255,200,0.9); }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* =========================
+   DISABLE HEAVY ANIMATION ON DASHBOARD
+========================= */
+.dashboard .space-bg {
+    animation: none;
+    opacity: 0.15;
+}

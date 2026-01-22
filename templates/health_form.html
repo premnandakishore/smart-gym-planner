@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Health Details</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<div class="auth-container">
+    <form class="auth-card" method="POST" action="/health">
+
+        <h2>Enter Your Details</h2>
+        <p class="subtitle">Let’s personalize your fitness plan 💪</p>
+
+        <input type="number" name="age" placeholder="Age" required>
+
+        <input type="number" name="height" placeholder="Height (cm)" required>
+
+        <input type="number" name="weight" placeholder="Weight (kg)" required>
+
+        <select name="goal" required>
+            <option value="">Select Goal</option>
+            <option value="fat_loss">Fat Loss</option>
+            <option value="muscle_gain">Muscle Gain</option>
+            <option value="maintenance">Maintenance</option>
+        </select>
+
+        <button type="submit">Generate Plan</button>
+
+    </form>
+</div>
+
+</body>
+</html>

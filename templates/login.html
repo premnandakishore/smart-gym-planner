@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<!-- Animated background -->
+<div class="space-bg"></div>
+
+<!-- 🔔 TOP FLASH POPUP -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div id="flash-container">
+      {% for category, message in messages %}
+        <div class="flash-popup {{ category }}">
+            {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<div class="auth-container">
+    <form class="auth-card" method="POST" action="/login">
+
+        <h2>Login</h2>
+
+        <!-- Backend error -->
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <input type="email" name="email" placeholder="Email" required>
+
+        <div class="password-wrapper">
+            <input type="password" name="password" id="loginPassword" placeholder="Password" required>
+            <span class="toggle-password" onclick="togglePassword('loginPassword', this)">👁</span>
+        </div>
+
+        <button type="submit">Login</button>
+
+        <div class="links">
+            <a href="/forgot">Forgot password?</a><br>
+            <a href="/register">Create Account</a>
+        </div>
+
+    </form>
+</div>
+
+<script>
+function togglePassword(id, el) {
+    const input = document.getElementById(id);
+    if (input.type === "password") {
+        input.type = "text";
+        el.textContent = "🙈";
+    } else {
+        input.type = "password";
+        el.textContent = "👁";
+    }
+}
+
+/* 🔥 Auto-hide popup after 5 seconds */
+setTimeout(() => {
+    const popup = document.getElementById("flash-container");
+    if (popup) {
+        popup.style.opacity = "0";
+        setTimeout(() => popup.remove(), 500);
+    }
+}, 5000);
+</script>
+
+</body>
+</html>

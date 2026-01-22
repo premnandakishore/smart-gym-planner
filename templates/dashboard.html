@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Fitness Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <h1>🏋️ Your Fitness Dashboard</h1>
+    </div>
+
+    <!-- USER INFO -->
+    <div class="dashboard-card">
+        <h3>User Info</h3>
+        <p>Age: <span class="stat-highlight">{{ age }}</span></p>
+        <p>Height: <span class="stat-highlight">{{ height }} cm</span></p>
+        <p>Weight: <span class="stat-highlight">{{ weight }} kg</span></p>
+        <p>
+            Goal:
+            <span class="stat-highlight">
+                {{ goal | replace("_", " ") | title }}
+            </span>
+        </p>
+    </div>
+
+    <!-- HEALTH -->
+    <div class="dashboard-card">
+        <h3>Health</h3>
+        <p>
+            BMI:
+            <span class="stat-highlight">{{ bmi }}</span>
+            <span class="badge overweight">{{ category }}</span>
+        </p>
+    </div>
+
+    <!-- NUTRITION -->
+    <div class="dashboard-card">
+        <h3>Nutrition</h3>
+        <p>
+            Calories:
+            <span class="stat-highlight">{{ calories }}</span> kcal/day
+        </p>
+        <p>
+            Protein:
+            <span class="stat-highlight">{{ protein }}</span> g/day
+        </p>
+    </div>
+
+    <!-- WORKOUT -->
+    <div class="dashboard-card">
+        <h3>Today's Workout ({{ day }})</h3>
+        <p>
+            Muscle Group:
+            <span class="stat-highlight">{{ muscle }}</span>
+        </p>
+        <ul>
+            {% for ex in exercises %}
+                <li>{{ ex }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <!-- ACTION BUTTONS -->
+<div class="dashboard-actions">
+
+    <a href="/weekly-plan" class="action-btn">
+        📅 Weekly Plan
+    </a>
+
+    <a href="/download-plan" class="action-btn">
+        ⬇ Download Plan
+    </a>
+
+    <a href="/logout" class="action-btn logout-btn">
+        🚪 Logout
+    </a>
+
+</div>
+
+
+    <!-- MOTIVATION -->
+    <div class="dashboard-card" style="text-align:center;">
+        <p style="color:#aaa;">
+            💪 Consistency beats motivation.<br>
+            Show up today. Stronger tomorrow.
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>

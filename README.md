@@ -31,11 +31,17 @@ Smart Gym Planner is a Flask-based web application that generates personalized w
 ## 📂 Project Structure
 
 ├── app.py
+
 ├── requirements.txt
+
 ├── data/
+
 ├── static/
+
 ├── templates/
+
 ├── utils/
+
 └── README.md
 
 
@@ -48,9 +54,13 @@ https://github.com/premnandkishore/smart-gym-planner.git
 
 
 Navigate to the project folder:
+
 **cd smart-gym-planner** : Install dependencies:
+
 pip install -r requirements.txt
+
 Run the application: python app.py
+
 Open in browser : http://127.0.0.1:5000
 
 
@@ -67,3 +77,4 @@ The goal of this project is to help users create structured gym plans and mainta
 Prem Nanda Kishore  
 B.Tech Computer Science Engineering  
 Lovely Professional University
+
